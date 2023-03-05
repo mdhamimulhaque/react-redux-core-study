@@ -6,7 +6,7 @@ const Home = () => {
   const [products, setProducts] = useState([]);
 
   const state = useSelector((state) => state);
-  console.log(state)
+  // console.log(state)
 
   useEffect(() => {
     fetch('products.json')

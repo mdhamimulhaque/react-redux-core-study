@@ -7,12 +7,14 @@ import { AddToCart, RemoveFromCart } from "../redux/actionCreators/productAction
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
-  const { pathname } = useLocation()
+  const { pathname } = useLocation();
+  console.log(product)
   return (
     <div
-      className='shadow-lg rounded-3xl border  p-3 flex flex-col text-indigo-900'
+      className='shadow-lg rounded-3xl border  p-3 flex flex-col text-indigo-900 relative'
       key={product.id}
     >
+      <span className={pathname?.includes('cart') ? `absolute top-10 right-10 inline-flex justify-center items-center py-0.5 px-2.5 border-none rounded-full bg-blue-400 text-xs text-gray-50 font-medium` : 'hidden'}>{product?.quantity}</span>
       <div className='h-52 w-52 mx-auto'>
         <img src={product.image} alt={product.model} />
       </div>
